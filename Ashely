@@ -1,0 +1,46 @@
+labuser@labuser-virtual-machine:~$ git clone https://github.com/AshlesaDash/Gitdemo.git
+Cloning into 'Gitdemo'...
+fatal: unable to access 'https://github.com/AshlesaDash/Gitdemo.git/': Could not resolve host: github.com
+labuser@labuser-virtual-machine:~$ ls -li
+total 48
+6029410 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Desktop
+6029414 drwxr-xr-x 3 labuser labuser 4096 Dec 15  2023 Documents
+6029411 drwxr-xr-x 2 labuser labuser 4096 Dec 18  2023 Downloads
+6036475 -rw-rw-r-- 1 labuser labuser   53 Dec 18  2023 execute.yml
+6029415 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Music
+6029416 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Pictures
+6029413 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Public
+6030259 drwxrwxr-x 2 labuser labuser 4096 Dec 18  2023 repos
+6029322 drwx------ 6 labuser labuser 4096 Dec 15  2023 snap
+6029412 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Templates
+6161981 drwxrwxr-x 3 labuser labuser 4096 Dec 14 01:29 test1
+6029418 drwxr-xr-x 2 labuser labuser 4096 Sep 12  2023 Videos
+labuser@labuser-virtual-machine:~$ cd gitdemo
+bash: cd: gitdemo: No such file or directory
+labuser@labuser-virtual-machine:~$ cd Gitdemo
+bash: cd: Gitdemo: No such file or directory
+labuser@labuser-virtual-machine:~$ cd test1
+labuser@labuser-virtual-machine:~/test1$ ls
+tes1  test  test1  test2  test3  test4
+labuser@labuser-virtual-machine:~/test1$ mkdir dev1
+labuser@labuser-virtual-machine:~/test1$ cd dev1
+labuser@labuser-virtual-machine:~/test1/dev1$ git pull https://github.com/AshlesaDash/Gitdemo.git
+fatal: unable to access 'https://github.com/AshlesaDash/Gitdemo.git/': Could not resolve host: github.com
+labuser@labuser-virtual-machine:~/test1/dev1$ git init
+Initialized empty Git repository in /home/labuser/test1/dev1/.git/
+labuser@labuser-virtual-machine:~/test1/dev1$ git remote -v
+labuser@labuser-virtual-machine:~/test1/dev1$ git pull https://github.com/AshlesaDash/Gitdemo.git
+fatal: unable to access 'https://github.com/AshlesaDash/Gitdemo.git/': Could not resolve host: github.com
+labuser@labuser-virtual-machine:~/test1/dev1$ git pull https://github.com/AshlesaDash/Gitdemo.git
+fatal: unable to access 'https://github.com/AshlesaDash/Gitdemo.git/': Could not resolve host: github.com
+labuser@labuser-virtual-machine:~/test1/dev1$ git branch
+labuser@labuser-virtual-machine:~/test1/dev1$ la -li
+total 4
+6160985 drwxrwxr-x 7 labuser labuser 4096 Dec 14 04:15 .git
+labuser@labuser-virtual-machine:~/test1/dev1$ ls -li
+total 0
+labuser@labuser-virtual-machine:~/test1/dev1$ git branch m1
+fatal: Not a valid object name: 'master'.
+labuser@labuser-virtual-machine:~/test1/dev1$ git checkout master
+error: pathspec 'master' did not match any file(s) known to git
+labuser@labuser-virtual-machine:~/test1/dev1$ 
