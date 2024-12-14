@@ -1,0 +1,274 @@
+labuser@labuser-virtual-machine:~$ git --version
+git version 2.34.1
+labuser@labuser-virtual-machine:~$ mkdir teest1
+labuser@labuser-virtual-machine:~$ cd teest1
+labuser@labuser-virtual-machine:~/teest1$ git init 
+Initialized empty Git repository in /home/labuser/teest1/.git/
+labuser@labuser-virtual-machine:~/teest1$ git init
+Reinitialized existing Git repository in /home/labuser/teest1/.git/
+labuser@labuser-virtual-machine:~/teest1$ echo "teest1" > teest1
+labuser@labuser-virtual-machine:~/teest1$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	teest1
+
+nothing added to commit but untracked files present (use "git add" to track)
+labuser@labuser-virtual-machine:~/teest1$ git add .
+labuser@labuser-virtual-machine:~/teest1$ git commit -m "cchanges1"
+[master (root-commit) 70195f4] cchanges1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 teest1
+labuser@labuser-virtual-machine:~/teest1$ git remote add origin https://github.com/AshlesaDash/teest1.git
+labuser@labuser-virtual-machine:~/teest1$ git remote -v
+origin	https://github.com/AshlesaDash/teest1.git (fetch)
+origin	https://github.com/AshlesaDash/teest1.git (push)
+labuser@labuser-virtual-machine:~/teest1$ git push -u origin master
+Username for 'https://github.com': AshlesaDash
+Password for 'https://AshlesaDash@github.com': 
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 225 bytes | 225.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/AshlesaDash/teest1.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+labuser@labuser-virtual-machine:~/teest1$ ls
+teest1
+labuser@labuser-virtual-machine:~/teest1$ nano teest1
+labuser@labuser-virtual-machine:~/teest1$ git add .
+labuser@labuser-virtual-machine:~/teest1$ git commit -m "cchanges2"
+[master c660e72] cchanges2
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+labuser@labuser-virtual-machine:~/teest1$ git push -u origin master
+Username for 'https://github.com': AshlesaDash
+Password for 'https://AshlesaDash@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Writing objects: 100% (3/3), 256 bytes | 256.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/AshlesaDash/teest1.git
+   70195f4..c660e72  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+labuser@labuser-virtual-machine:~/teest1$ git branch
+* master
+labuser@labuser-virtual-machine:~/teest1$ git branch devopps
+labuser@labuser-virtual-machine:~/teest1$ git checkout devopps
+Switched to branch 'devopps'
+labuser@labuser-virtual-machine:~/teest1$ git branch
+* devopps
+  master
+labuser@labuser-virtual-machine:~/teest1$ echo "teest3" > filess
+labuser@labuser-virtual-machine:~/teest1$ echo "teest4" > filess2
+labuser@labuser-virtual-machine:~/teest1$ ls -li
+total 12
+6032059 -rw-rw-r-- 1 labuser labuser 7 Dec 14 05:13 filess
+6032024 -rw-rw-r-- 1 labuser labuser 7 Dec 14 05:14 filess2
+6032065 -rw-rw-r-- 1 labuser labuser 7 Dec 14 05:07 teest1
+labuser@labuser-virtual-machine:~/teest1$ git add .
+labuser@labuser-virtual-machine:~/teest1$ git commit -m "cchanges4"
+[devopps dcadfa0] cchanges4
+ 2 files changed, 2 insertions(+)
+ create mode 100644 filess
+ create mode 100644 filess2
+labuser@labuser-virtual-machine:~/teest1$ git push -u origin devopps
+Username for 'https://github.com': AshlesaDash
+Password for 'https://AshlesaDash@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 327 bytes | 327.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'devopps' on GitHub by visiting:
+remote:      https://github.com/AshlesaDash/teest1/pull/new/devopps
+remote: 
+To https://github.com/AshlesaDash/teest1.git
+ * [new branch]      devopps -> devopps
+Branch 'devopps' set up to track remote branch 'devopps' from 'origin'.
+labuser@labuser-virtual-machine:~/teest1$ git branch
+* devopps
+  master
+labuser@labuser-virtual-machine:~/teest1$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+labuser@labuser-virtual-machine:~/teest1$ git merge devopps
+Updating c660e72..dcadfa0
+Fast-forward
+ filess  | 1 +
+ filess2 | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 filess
+ create mode 100644 filess2
+labuser@labuser-virtual-machine:~/teest1$ git log -p
+commit dcadfa0e57501a41dec2e5fd1e55903ec0eb078b (HEAD -> master, origin/devopps, devopps)
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 05:15:15 2024 -0500
+
+    cchanges4
+
+diff --git a/filess b/filess
+new file mode 100644
+index 0000000..5e46c74
+--- /dev/null
++++ b/filess
+@@ -0,0 +1 @@
++teest3
+diff --git a/filess2 b/filess2
+new file mode 100644
+index 0000000..108583d
+--- /dev/null
++++ b/filess2
+@@ -0,0 +1 @@
++teest4
+
+commit c660e72381fd604a942c78071d74d5458fa6f0f1 (origin/master)
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 05:08:55 2024 -0500
+
+    cchanges2
+
+diff --git a/teest1 b/teest1
+index 42f3546..e8c2075 100644
+--- a/teest1
++++ b/teest1
+@@ -1 +1 @@
+-teest1
++teest2
+
+commit 70195f4e7651621fa483b08be536bf308465501c
+Author: David Robichaud <david.robichaud@skillsoft.com>
+Date:   Sat Dec 14 04:56:43 2024 -0500
+
+    cchanges1
+
+diff --git a/teest1 b/teest1
+new file mode 100644
+index 0000000..42f3546
+--- /dev/null
++++ b/teest1
+@@ -0,0 +1 @@
++teest1
+labuser@labuser-virtual-machine:~/teest1$ git log --oneline
+dcadfa0 (HEAD -> master, origin/devopps, devopps) cchanges4
+c660e72 (origin/master) cchanges2
+70195f4 cchanges1
+labuser@labuser-virtual-machine:~/teest1$ cd
+labuser@labuser-virtual-machine:~$ git clone https://github.com/AshlesaDash/teest1.git
+fatal: destination path 'teest1' already exists and is not an empty directory.
+labuser@labuser-virtual-machine:~$ git clone https://github.com/AshlesaDash/teest1
+fatal: destination path 'teest1' already exists and is not an empty directory.
+labuser@labuser-virtual-machine:~$ git clone https://github.com/AshlesaDash/teest1
+fatal: destination path 'teest1' already exists and is not an empty directory.
+labuser@labuser-virtual-machine:~$ git remote set-url origin https://github.com/AshlesaDash/teest1.git
+error: No such remote 'origin'
+labuser@labuser-virtual-machine:~$ git remote set - url origin https://github.com/AshlesaDash/teest1.giterror: Unknown subcommand: set
+usage: git remote [-v | --verbose]
+   or: git remote add [-t <branch>] [-m <master>] [-f] [--tags | --no-tags] [--mirror=<fetch|push>] <name> <url>
+   or: git remote rename <old> <new>
+   or: git remote remove <name>
+   or: git remote set-head <name> (-a | --auto | -d | --delete | <branch>)
+   or: git remote [-v | --verbose] show [-n] <name>
+   or: git remote prune [-n | --dry-run] <name>
+   or: git remote [-v | --verbose] update [-p | --prune] [(<group> | <remote>)...]
+   or: git remote set-branches [--add] <name> <branch>...
+   or: git remote get-url [--push] [--all] <name>
+   or: git remote set-url [--push] <name> <newurl> [<oldurl>]
+   or: git remote set-url --add <name> <newurl>
+   or: git remote set-url --delete <name> <url>
+
+    -v, --verbose         be verbose; must be placed before a subcommand
+
+labuser@labuser-virtual-machine:~$ git clone https://github.com/AshlesaDash/teest1
+fatal: destination path 'teest1' already exists and is not an empty directory.
+labuser@labuser-virtual-machine:~$ cd teest1
+labuser@labuser-virtual-machine:~/teest1$ git clone https://github.com/AshlesaDash/teest1
+fatal: destination path 'teest1' already exists and is not an empty directory.
+labuser@labuser-virtual-machine:~/teest1$ ls
+filess  filess2  teest1
+labuser@labuser-virtual-machine:~/teest1$ cd teest1
+bash: cd: teest1: Not a directory
+labuser@labuser-virtual-machine:~/teest1$ git clone https://github.com/AshlesaDash/teest1
+fatal: destination path 'teest1' already exists and is not an empty directory.
+labuser@labuser-virtual-machine:~/teest1$ git clone https://github.com/AshlesaDash/labbtestt1
+Cloning into 'labbtestt1'...
+warning: You appear to have cloned an empty repository.
+labuser@labuser-virtual-machine:~/teest1$ git clone https://github.com/AshlesaDash/lab1
+Cloning into 'lab1'...
+remote: Enumerating objects: 10, done.
+remote: Counting objects: 100% (10/10), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 10 (delta 1), reused 9 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (10/10), done.
+Resolving deltas: 100% (1/1), done.
+labuser@labuser-virtual-machine:~/teest1$ ls -li
+total 20
+6032059 -rw-rw-r-- 1 labuser labuser    7 Dec 14 05:19 filess
+6032087 -rw-rw-r-- 1 labuser labuser    7 Dec 14 05:19 filess2
+6032529 drwxrwxr-x 3 labuser labuser 4096 Dec 14 05:54 lab1
+6032459 drwxrwxr-x 3 labuser labuser 4096 Dec 14 05:48 labbtestt1
+6032065 -rw-rw-r-- 1 labuser labuser    7 Dec 14 05:07 teest1
+labuser@labuser-virtual-machine:~/teest1$ cd lab1
+labuser@labuser-virtual-machine:~/teest1/lab1$ ls
+teest1
+labuser@labuser-virtual-machine:~/teest1/lab1$ mkdir dev1
+labuser@labuser-virtual-machine:~/teest1/lab1$ cd dev1
+labuser@labuser-virtual-machine:~/teest1/lab1/dev1$ git pull https://github.com/AshlesaDash/lab1
+From https://github.com/AshlesaDash/lab1
+ * branch            HEAD       -> FETCH_HEAD
+Already up to date.
+labuser@labuser-virtual-machine:~/teest1/lab1/dev1$ git init
+Initialized empty Git repository in /home/labuser/teest1/lab1/dev1/.git/
+labuser@labuser-virtual-machine:~/teest1/lab1/dev1$ git remote -v
+labuser@labuser-virtual-machine:~/teest1/lab1/dev1$ git pull https://github.com/AshlesaDash/lab1
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 6 (delta 1), reused 5 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (6/6), 388 bytes | 388.00 KiB/s, done.
+From https://github.com/AshlesaDash/lab1
+ * branch            HEAD       -> FETCH_HEAD
+labuser@labuser-virtual-machine:~/teest1/lab1/dev1$ branch
+]Command 'branch' not found, but can be installed with:
+sudo apt install rheolef
+labuser@labuser-virtual-machine:~/teest1/lab1/dev1$ ]git branch
+'Command ']git' not found, did you mean:
+  command 'dgit' from deb dgit (9.15)
+  command 'git' from deb git (1:2.34.1-1ubuntu1.11)
+  command 'jgit' from deb jgit-cli (4.11.9-1)
+  command 'qgit' from deb qgit (2.10-2)
+Try: sudo apt install <deb name>
+labuser@labuser-virtual-machine:~/teest1/lab1/dev1$ git branch
+* master
+labuser@labuser-virtual-machine:~/teest1/lab1/dev1$ ls -li
+total 4
+6032765 -rw-rw-r-- 1 labuser labuser 7 Dec 14 05:57 teest1
+labuser@labuser-virtual-machine:~/teest1/lab1/dev1$ git branch m1
+labuser@labuser-virtual-machine:~/teest1/lab1/dev1$ get checkout m1
+Command 'get' not found, but there are 18 similar ones.
+labuser@labuser-virtual-machine:~/teest1/lab1/dev1$ git checkout m1
+Switched to branch 'm1'
+labuser@labuser-virtual-machine:~/teest1/lab1/dev1$ echo "banana" > fruit
+labuser@labuser-virtual-machine:~/teest1/lab1/dev1$ ls
+fruit  teest1
+labuser@labuser-virtual-machine:~/teest1/lab1/dev1$ git checkout master
+Switched to branch 'master'
+labuser@labuser-virtual-machine:~/teest1/lab1/dev1$ ls
+fruit  teest1
+labuser@labuser-virtual-machine:~/teest1/lab1/dev1$ git m1
+git: 'm1' is not a git command. See 'git --help'.
+
+The most similar command is
+	mv
+labuser@labuser-virtual-machine:~/teest1/lab1/dev1$ git checkout m1
+Switched to branch 'm1'
+labuser@labuser-virtual-machine:~/teest1/lab1/dev1$ ls
+fruit  teest1
+labuser@labuser-virtual-machine:~/teest1/lab1/dev1$ git rebase master
+Current branch m1 is up to date.
+labuser@labuser-virtual-machine:~/teest1/lab1/dev1$ 
+
